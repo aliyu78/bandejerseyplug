@@ -1,4 +1,13 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', (auth.onAuthStateChanged((user) => {
+  if (user) {
+    document.getElementById("addForm").style.display = "block";
+    renderJerseys();
+  } else {
+    // ✅ Redirect to home if NOT logged in
+    window.location.href = "index.html";
+  }
+});
+) => {
   const auth = window.firebaseAuth;
 
   // ✅ Protect admin.html: only allow access if logged in
