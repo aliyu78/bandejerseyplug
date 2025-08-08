@@ -1,4 +1,4 @@
-<!-- firebase.js -->
+<!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
 <script>
@@ -11,9 +11,6 @@
     appId: "1:287861270979:web:28b4cb0f3359d457aab576"
   };
 
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
-  // Make auth available globally
-  window.firebaseAuth = firebase.auth();
+  window.firebaseAuth = firebase.auth(); // ✅ Global access
 </script>
