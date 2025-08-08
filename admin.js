@@ -1,38 +1,32 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const auth = window.firebaseAuth;
+  const stored = localStorage.getItem("loggedIn");
 
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      document.getElementById("addForm").style.display = "block";
-      document.getElementById("logoutBtn").style.display = "block";
+  if (stored !== "true") {
+    document.getElementById("addForm").style.display = "none";
+  } else {
+    document.getElementById("addForm").style.display = "block";
+    document.getElementById("email").style.display = "none";
+    document.getElementById("password").style.display = "none";
+    document.querySelector("button[onclick='login()']").style.display = "none";
+    document.getElementById("logoutBtn").style.display = "block";
+    renderJerseys();
+  }
 
-      document.getElementById("email").style.display = "none";
-      document.getElementById("password").style.display = "none";
-      document.querySelector("button[onclick='login()']").style.display = "none";
+  window.login = () => {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-      renderJerseys();
-    } else {
-      window.location.href = "index.html";
-    }
-  });
-
-  window.login = async () => {
-    const email = document.getElementById("email").value;
-    const pass = document.getElementById("password").value;
-
-    try {
-      await auth.signInWithEmailAndPassword(email, pass);
-      alert("Login successful!");
+    if (email === "admin@bandeplug.com" && password === "Aliyu@123") {
+      localStorage.setItem("loggedIn", "true");
       location.reload();
-    } catch (e) {
-      alert("Login failed: " + e.message);
+    } else {
+      alert("Incorrect credentials!");
     }
   };
 
-  window.logout = async () => {
-    await auth.signOut();
-    alert("Logged out!");
-    window.location.href = "index.html";
+  window.logout = () => {
+    localStorage.removeItem("loggedIn");
+    location.reload();
   };
 
   window.addJersey = () => {
@@ -51,9 +45,9 @@ window.addEventListener('DOMContentLoaded', () => {
     renderJerseys();
   };
 
-  window.removeJersey = (i) => {
+  window.removeJersey = (index) => {
     const jerseys = JSON.parse(localStorage.getItem("jerseys")) || [];
-    jerseys.splice(i, 1);
+    jerseys.splice(index, 1);
     localStorage.setItem("jerseys", JSON.stringify(jerseys));
     renderJerseys();
   };
@@ -62,7 +56,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const list = document.getElementById("adminList");
     const jerseys = JSON.parse(localStorage.getItem("jerseys")) || [];
     list.innerHTML = "";
-
     jerseys.forEach((j, i) => {
       const div = document.createElement("div");
       div.className = "product-card";
