@@ -1,22 +1,18 @@
-window.addEventListener('DOMContentLoaded', (auth.onAuthStateChanged((user) => {
-  if (user) {
-    document.getElementById("addForm").style.display = "block";
-    renderJerseys();
-  } else {
-    // ✅ Redirect to home if NOT logged in
-    window.location.href = "index.html";
-  }
-});
-) => {
+window.addEventListener('DOMContentLoaded', () => {
   const auth = window.firebaseAuth;
 
-  // ✅ Protect admin.html: only allow access if logged in
+  // 🔒 Block access to admin.html unless logged in
   auth.onAuthStateChanged((user) => {
     if (user) {
       document.getElementById("addForm").style.display = "block";
       renderJerseys();
+
+      // Optional: hide login form after session restore
+      document.getElementById("email").style.display = "none";
+      document.getElementById("password").style.display = "none";
+      document.querySelector("button[onclick='login()']").style.display = "none";
     } else {
-      // ❌ If not logged in, redirect to homepage
+      // ❌ Not logged in → redirect to homepage
       window.location.href = "index.html";
     }
   });
@@ -30,11 +26,12 @@ window.addEventListener('DOMContentLoaded', (auth.onAuthStateChanged((user) => {
       await auth.signInWithEmailAndPassword(email, pass);
       alert("Login successful!");
 
-      // Optional: hide login fields after login
+      // Hide login form
       document.getElementById("email").style.display = "none";
       document.getElementById("password").style.display = "none";
       document.querySelector("button[onclick='login()']").style.display = "none";
 
+      // Show admin form
       document.getElementById("addForm").style.display = "block";
       renderJerseys();
     } catch (e) {
@@ -42,7 +39,7 @@ window.addEventListener('DOMContentLoaded', (auth.onAuthStateChanged((user) => {
     }
   };
 
-  // ➕ Add new jersey
+  // ➕ Add a new jersey
   window.addJersey = () => {
     const name = document.getElementById("jerseyName").value;
     const price = document.getElementById("jerseyPrice").value;
@@ -50,7 +47,7 @@ window.addEventListener('DOMContentLoaded', (auth.onAuthStateChanged((user) => {
     const team = document.getElementById("jerseyTeam").value;
 
     if (!name || !price || !img || !team) {
-      return alert("Fill all fields!");
+      return alert("Please fill all fields");
     }
 
     const jerseys = JSON.parse(localStorage.getItem("jerseys")) || [];
@@ -59,7 +56,7 @@ window.addEventListener('DOMContentLoaded', (auth.onAuthStateChanged((user) => {
     renderJerseys();
   };
 
-  // 🗑 Remove a jersey
+  // 🗑 Remove jersey
   window.removeJersey = (i) => {
     const jerseys = JSON.parse(localStorage.getItem("jerseys")) || [];
     jerseys.splice(i, 1);
@@ -67,16 +64,17 @@ window.addEventListener('DOMContentLoaded', (auth.onAuthStateChanged((user) => {
     renderJerseys();
   };
 
-  // 🔁 Load all jerseys into admin panel
+  // 🔁 Render all jerseys in admin panel
   window.renderJerseys = () => {
     const list = document.getElementById("adminList");
     const jerseys = JSON.parse(localStorage.getItem("jerseys")) || [];
     list.innerHTML = "";
+
     jerseys.forEach((j, i) => {
       const div = document.createElement("div");
       div.className = "product-card";
       div.innerHTML = `
-        <img src="${j.img}">
+        <img src="${j.img}" />
         <h3>${j.name}</h3>
         <p>${j.price}</p>
         <button onclick="removeJersey(${i})">🗑 Remove</button>
