@@ -1,5 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
   const stored = localStorage.getItem("loggedIn");
+window.logout = () => {
+  localStorage.removeItem("loggedIn");
+  location.reload();
+};
 
   if (stored !== "true") {
     document.getElementById("addForm").style.display = "none";
