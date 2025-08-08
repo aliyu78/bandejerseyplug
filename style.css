@@ -1,4 +1,4 @@
-/* GLOBAL */
+/* ===== GLOBAL RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -6,294 +6,18 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #f7f8fc, #e1e5ee);
-  color: #333;
+  font-family: 'Space Grotesk', 'DM Sans', sans-serif;
+  background: #0a0a0a;
+  color: #f0f0f0;
   line-height: 1.6;
-}
-
-/* HEADER */
-header {
-  background: #000;
-  color: #fff;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #00ffcc;
-}
-
-nav a {
-  color: #fff;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #00ffcc;
-}
-
-/* MAIN SECTION */
-section {
-  padding: 40px 20px;
-}
-
-/* INPUTS & BUTTONS */
-input, button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 15px;
-  width: 100%;
-  max-width: 350px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-}
-
-input:focus {
-  border-color: #00ffcc;
-  outline: none;
-  box-shadow: 0 0 5px #00ffcc88;
-}
-
-button {
-  background: #00cc99;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-button:hover {
-  background: #009977;
-  transform: scale(1.03);
-}
-
-/* PRODUCT GRID */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 30px;
-  padding-top: 20px;
-}
-
-/* PRODUCT CARD */
-.product-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.product-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.product-card h3 {
-  font-size: 18px;
-  color: #222;
-  margin-bottom: 8px;
-}
-
-.product-card p {
-  font-size: 16px;
-  font-weight: bold;
-  color: #00cc99;
-  margin-bottom: 12px;
-}
-
-.product-card button {
-  background: #0077ff;
-  color: white;
-}
-
-.product-card button:hover {
-  background: #0059c2;
-}
-
-/* ADMIN PANEL */
-.admin-panel {
-  max-width: 600px;
-  margin: auto;
-  text-align: center;
-}
-
-.admin-panel h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.admin-panel h3 {
-  margin-top: 30px;
-  font-size: 20px;
-  color: #444;
-}
-
-/* CART BUTTON */
-button[onclick*="checkoutCart"] {
-  background: #25d366;
-  color: white;
-  font-size: 17px;
-  font-weight: 600;
-  max-width: 400px;
-}
-
-button[onclick*="checkoutCart"]:hover {
-  background: #1ebd5a;
-}
-
-/* MEDIA QUERIES */
-@media (max-width: 600px) {
-  .logo {
-    font-size: 20px;
-  }
-
-  nav a {
-    margin-left: 10px;
-    font-size: 14px;
-  }
-}
-/* ADMIN PANEL AREA */
-.admin-panel {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.admin-panel h2, .admin-panel h3 {
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-.admin-panel input {
-  padding: 12px;
-  margin: 10px 0;
-  width: 100%;
-  max-width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background: #fafafa;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
-}
-
-.admin-panel input:focus {
-  border-color: #00cc99;
-  box-shadow: 0 0 5px #00cc9955;
-  outline: none;
-}
-
-.admin-panel button {
-  padding: 12px;
-  margin-top: 10px;
-  width: 100%;
-  background-color: #00cc99;
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.admin-panel button:hover {
-  background-color: #009977;
-  transform: scale(1.03);
-}
-
-/* Show logout clearly */
-#logoutBtn {
-  background-color: #ff4d4d;
-}
-
-#logoutBtn:hover {
-  background-color: #cc0000;
-}
-
-/* ADMIN LIST GRID */
-#adminList {
-  margin-top: 30px;
-}
-
-.product-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 16px;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-}
-
-.product-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.product-card h3 {
-  margin-bottom: 5px;
-  font-size: 18px;
-  color: #333;
-}
-
-.product-card p {
-  color: #00cc99;
-  font-weight: bold;
-}
-
-.product-card button {
-  margin-top: 8px;
-  background: #ff4d4d;
-}
-
-.product-card button:hover {
-  background: #cc0000;
-}
-/* ===== BASE RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-  background: linear-gradient(145deg, #f0f2f5, #e5eaf1);
-  color: #1c1c1e;
   min-height: 100vh;
   overflow-x: hidden;
+  padding-bottom: 100px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* ===== HEADER ===== */
@@ -304,90 +28,100 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 0 10px rgba(0,255,200,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
-  color: #00ffd5;
+  color: #00ffe1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
   margin-left: 30px;
   font-weight: 500;
+  font-size: 16px;
+  color: #f0f0f0;
   transition: 0.3s;
 }
+
 nav a:hover {
-  color: #00ffd5;
+  color: #00ffe1;
 }
 
-/* ===== CONTAINERS ===== */
+/* ===== SECTION WRAPPER ===== */
 section {
-  padding: 40px 20px;
   max-width: 1200px;
   margin: auto;
+  padding: 60px 20px 40px;
 }
 
+/* ===== HEADERS ===== */
 h2, h3 {
+  color: #ffffff;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-/* ===== FORM FIELDS ===== */
+/* ===== INPUTS & BUTTONS ===== */
 input, button {
   display: block;
-  margin: 10px auto;
-  padding: 14px 16px;
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
+  margin: 12px auto;
+  padding: 14px 16px;
   font-size: 16px;
   border-radius: 12px;
-  border: 1px solid #ddd;
-  transition: 0.3s ease-in-out;
-  font-family: inherit;
+  border: 1px solid #222;
+  background: #111;
+  color: #f0f0f0;
+  transition: 0.3s;
 }
 
 input:focus {
+  border-color: #00ffe1;
   outline: none;
-  border-color: #00ffd5;
-  box-shadow: 0 0 6px #00ffd577;
+  box-shadow: 0 0 6px #00ffe199;
 }
 
 button {
-  background: #00ffd5;
+  background: linear-gradient(135deg, #00ffe1, #00c3ff);
   color: #000;
+  font-weight: bold;
   border: none;
-  font-weight: 600;
   cursor: pointer;
+  transition: 0.25s;
 }
+
 button:hover {
-  background: #00c7a3;
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px #00ffe180;
 }
 
 /* ===== ADMIN PANEL ===== */
 .admin-panel {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0,255,200,0.05);
+  max-width: 650px;
   margin: auto;
+  transition: 0.4s ease;
 }
 
-/* ===== LOGOUT ===== */
+/* ===== LOGOUT BUTTON ===== */
 #logoutBtn {
   background: #ff4d4d;
   color: white;
-  margin-top: 20px;
 }
 #logoutBtn:hover {
   background: #e60000;
@@ -398,15 +132,17 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
+/* ===== PRODUCT CARD ===== */
 .product-card {
-  background: white;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.05);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
-  transition: 0.3s ease;
+  box-shadow: 0 5px 18px rgba(0,255,200,0.05);
+  transition: 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -414,35 +150,43 @@ button:hover {
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0,255,200,0.15);
 }
 
 .product-card img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #222;
 }
 
 .product-card h3 {
-  margin: 15px 0 5px;
+  color: #fff;
   font-size: 18px;
-  color: #111;
+  margin-top: 15px;
 }
 
 .product-card p {
-  color: #00cc88;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: #00ffc3;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 5px 0 15px;
 }
 
 .product-card button {
-  margin-bottom: 15px;
+  background: #00c3ff;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 20px;
   width: 80%;
 }
 
-/* ===== WHATSAPP CHECKOUT ===== */
+.product-card button:hover {
+  background: #00a6d6;
+}
+
+/* ===== WHATSAPP BUTTON (checkout) ===== */
 button[onclick*="checkoutCart"] {
   background: #25D366;
   color: white;
@@ -452,18 +196,29 @@ button[onclick*="checkoutCart"]:hover {
   background: #1da851;
 }
 
-/* ===== MEDIA QUERIES ===== */
+/* ===== CART SPECIFIC ===== */
+.cart-summary {
+  background: #141414;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,255,200,0.05);
+  margin-bottom: 30px;
+}
+
+.cart-summary h3 {
+  color: #00ffe1;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* ===== MEDIA ===== */
 @media (max-width: 768px) {
-  .logo {
-    font-size: 20px;
+  header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   nav a {
-    margin-left: 15px;
-    font-size: 14px;
-  }
-
-  .admin-panel {
-    padding: 30px 20px;
+    margin: 10px 0 0;
   }
 }
