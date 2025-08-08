@@ -1,3 +1,4 @@
+const auth = window.firebaseAuth;
 window.addEventListener('DOMContentLoaded', () => {
   const auth = window.firebaseAuth;
 
