@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - BandeJerseyPlug</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Admin Panel</div>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+    </nav>
+  </header>
+
+  <section class="admin-panel">
+    <h2>Admin Login</h2>
+    <input type="email" id="email" placeholder="admin@bandeplug.com" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <button onclick="signup()">Create Admin</button>
+
+    <div id="addForm" style="display:none;">
+      <h3>Add New Jersey</h3>
+      <input type="text" id="jerseyName" placeholder="Jersey Name" />
+      <input type="text" id="jerseyPrice" placeholder="Price" />
+      <input type="text" id="jerseyImg" placeholder="Image URL" />
+      <input type="text" id="jerseyTeam" placeholder="Team (e.g. manutd)" />
+      <button onclick="addJersey()">Add Jersey</button>
+
+      <h3>All Jerseys</h3>
+      <div id="adminList" class="product-grid"></div>
+    </div>
+  </section>
+
+  <script src="firebase.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
