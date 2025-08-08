@@ -5,10 +5,9 @@
     apiKey: "AIzaSyDlK0m-RH1tHUUqiVejfKDKl216nMCZC7s",
     authDomain: "bandejerseyplug.firebaseapp.com",
     projectId: "bandejerseyplug",
-    storageBucket: "bandejerseyplug.firebasestorage.app",
+    storageBucket: "bandejerseyplug.appspot.com",
     messagingSenderId: "287861270979",
-    appId: "1:287861270979:web:28b4cb0f3359d457aab576",
-    measurementId: "G-WCBRL5M672"
+    appId: "1:287861270979:web:28b4cb0f3359d457aab576"
   };
 
   firebase.initializeApp(firebaseConfig);
