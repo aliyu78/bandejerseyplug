@@ -14,6 +14,6 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  // ✅ Attach Firebase Auth to window
+  // Make auth available globally
   window.firebaseAuth = firebase.auth();
 </script>
