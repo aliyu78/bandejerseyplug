@@ -4,23 +4,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadCart() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     list.innerHTML = "";
-    cart.forEach((item, i) => {
+    cart.forEach((item) => {
       const div = document.createElement("div");
       div.className = "product-card";
-      div.innerHTML = \`
-        <img src="\${item.img}">
-        <h3>\${item.name}</h3>
-        <p>\${item.price}</p>
-      \`;
+      div.innerHTML = `
+        <img src="${item.img}">
+        <h3>${item.name}</h3>
+        <p>${item.price}</p>
+      `;
       list.appendChild(div);
     });
   }
 
-  window.checkout = function () {
+  window.checkout = () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (!cart.length) return alert("Your cart is empty.");
-    const text = cart.map(c => \`\${c.name} - \${c.price}\`).join("%0A");
-    window.open(\`https://wa.me/2347048692036?text=I'm ready to order:%0A\${text}\`);
+    if (!cart.length) return alert("Cart is empty.");
+    const text = cart.map(c => `${c.name} - ${c.price}`).join("%0A");
+    window.open(`https://wa.me/2347048692036?text=Order:%0A${text}`);
   };
 
   loadCart();
